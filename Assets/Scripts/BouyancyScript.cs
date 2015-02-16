@@ -9,7 +9,7 @@ public class BouyancyScript : MonoBehaviour {
 
 	private float mass; //kg
 	private Rigidbody rigidBody;
-	private float waterDensity = 1020; //kg/m^3
+	private float waterDensity = 1025; //kg/m^3
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +40,15 @@ public class BouyancyScript : MonoBehaviour {
 			submergedRadius = radius * 2; // We can't get any more submerged than 2 * radius.
 		}
 		float submergedVolume = ((Mathf.PI * submergedRadius * submergedRadius) / 3) * ((3 * radius) - submergedRadius); // Just trust me with this.
-		Vector3 upthrust = submergedVolume * waterDensity * Physics.gravity * -1; // Gravity points down, upthrut points up.
+		float localDensity;
+		if (transform.position.y > 0) {
+			localDensity = waterDensity;
+		} else if (transform.position.y < -1000) {
+			localDensity = waterDensity + 3;
+		} else {
+			localDensity = waterDensity + ( 3 * Mathf.Abs(transform.position.y/1000));
+		}
+		Vector3 upthrust = submergedVolume * localDensity * Physics.gravity * -1; // Gravity points down, upthrut points up.
 		//DEBUG TOOL: upthrustMonitor = upthrust;
 		return upthrust;
 	}
