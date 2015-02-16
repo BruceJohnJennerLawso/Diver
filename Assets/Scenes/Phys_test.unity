@@ -104,7 +104,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 69f5f181fd36bf749b1f9d982c53523f, type: 2}
+  - {fileID: 2100000, guid: a7af8ae28615657438fb816502f8c764, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -238,10 +238,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 421863586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef1c9676953c9a409468b649d36ea90, type: 3}
+  m_Script: {fileID: 11500000, guid: f5194dbf9075cca4fae6433b36a7f129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: .5
+  radius: 1
 --- !u!1 &696326296
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,10 +321,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 696326296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef1c9676953c9a409468b649d36ea90, type: 3}
+  m_Script: {fileID: 11500000, guid: f5194dbf9075cca4fae6433b36a7f129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: .5
+  radius: 1
 --- !u!54 &696326302
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -573,10 +573,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1298008338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef1c9676953c9a409468b649d36ea90, type: 3}
+  m_Script: {fileID: 11500000, guid: f5194dbf9075cca4fae6433b36a7f129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: .5
+  radius: 1
 --- !u!54 &1298008344
 Rigidbody:
   m_ObjectHideFlags: 0
