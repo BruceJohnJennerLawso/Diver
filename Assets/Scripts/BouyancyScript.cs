@@ -4,6 +4,7 @@ using System.Collections;
 public class BouyancyScript : MonoBehaviour {
 
 	public float radius = 1; //m
+	public float dragC;
 
 	//DEBUG TOOL: public Vector3 upthrustMonitor;
 
@@ -26,6 +27,8 @@ public class BouyancyScript : MonoBehaviour {
 	void FixedUpdate() {
 		Vector3 bouyancy = findBouyancy ();
 		rigidbody.AddForce (bouyancy);
+		Vector3 drag = findDrag ();
+		rigidBody.AddForce (drag);
 	}
 
 	// Calculates the bouyancy force the object is experiencing.
@@ -51,5 +54,15 @@ public class BouyancyScript : MonoBehaviour {
 		Vector3 upthrust = submergedVolume * localDensity * Physics.gravity * -1; // Gravity points down, upthrut points up.
 		//DEBUG TOOL: upthrustMonitor = upthrust;
 		return upthrust;
+	}
+
+	Vector3 findDrag() {
+		if (transform.position.y + radius > 0)
+			return new Vector3(0, 0, 0);								//The drag equation only works when fully immersed.
+		Vector3 velocity = rigidBody.velocity;
+		float area = Mathf.PI * radius * radius;
+		float force = 1 / 2 * waterDensity * velocity.sqrMagnitude * dragC * area;
+		Vector3 direc = velocity.normalized;
+		return force * direc;
 	}
 }
